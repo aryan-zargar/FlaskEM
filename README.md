@@ -1,4 +1,4 @@
-# FlaskEM
+****FlaskEM****
 
 **this app is based in flask & django and its the core is not written by myself**
 
@@ -12,13 +12,13 @@ install the flask & sqlalchemy :
 
 now you can search the functions and use them 
 
-**Example : **
+**Example :**
 
 **@app.route("/")**
 
 **def mainPage():**
 
-**  return FlaskEM.AddPage("main.html",a=5,b=7)**
+**return FlaskEM.AddPage("main.html",a=5,b=7)**
 
 dont worry i will make a documentation for this but not now
 

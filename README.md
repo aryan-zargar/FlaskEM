@@ -10,7 +10,7 @@ install the flask & sqlalchemy :
 
 *pip install Flask Flask-SQLAlchemy*
 
-now you can search the functions and use them 
+__now you can search the functions and use them__ 
 
 **Example :**
 

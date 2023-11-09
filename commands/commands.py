@@ -15,5 +15,15 @@ def ConfigDataBase(app,location):
 def Create_DB():
     from app import db
     db.create_all()
-
-    
+def Create_DB_Class(**kwargs):
+    from app import db
+    class Create_CLass(db.Model):
+        id = db.Column(db.Integer , primary_key = True)
+        for key,Type in kwargs.items():
+            if Type.lower() == "string":
+                key = db.Column(db.String(500))
+            if Type.lower() == "integer":
+                key = db.Column(db.integer)
+            if Type.lower() == "blob":
+                key = db.Column(db.BLOB)
+    return Create_CLass

@@ -1,7 +1,5 @@
 from flask import Flask,render_template
 from flask_sqlalchemy import *
-def create_app():
-    return Flask(__name__)
 def addPage(FileName,**kwargs):
     theReturnDict = {}
     for key,value in kwargs.items():
@@ -15,15 +13,10 @@ def ConfigDataBase(app,location):
 def Create_DB():
     from app import db
     db.create_all()
-def Create_DB_Class(**kwargs):
-    from app import db
-    class Create_CLass(db.Model):
-        id = db.Column(db.Integer , primary_key = True)
-        for key,Type in kwargs.items():
-            if Type.lower() == "string":
-                key = db.Column(db.String(500))
-            if Type.lower() == "integer":
-                key = db.Column(db.integer)
-            if Type.lower() == "blob":
-                key = db.Column(db.BLOB)
-    return Create_CLass
+def DB_Add(db,value):
+    db.session.add(value)
+    db.session.commit()
+def DB_Remove(db,objectClass,id):
+    findedOBJ = objectClass.query.get_or_404(id)
+    db.session.delete(findedOBJ)
+    db.session.commit()

@@ -10,7 +10,7 @@ def ConfigDataBase(app,location):
     app.config['SQLACHEMY_TRACK_MODIFICATIONS'] = False
     db = SQLAlchemy(app)
     return db
-def Create_DB(db):
+def Create_DB():
     from app import db
     db.create_all()
 

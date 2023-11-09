@@ -1,5 +1,7 @@
 from flask import Flask,render_template
 from flask_sqlalchemy import *
+def create_app():
+    return Flask(__name__)
 def addPage(FileName,**kwargs):
     theReturnDict = {}
     for key,value in kwargs.items():

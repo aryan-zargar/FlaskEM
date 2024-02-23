@@ -10,13 +10,12 @@ def ConfigDataBase(app,location):
     app.config['SQLACHEMY_TRACK_MODIFICATIONS'] = False
     db = SQLAlchemy(app)
     return db
-def Create_DB():
-    from app import db
-    db.create_all()
-def DB_Add(db,value):
+def SQLITE_DB_Add(db,value):
     db.session.add(value)
     db.session.commit()
-def DB_Remove(db,objectClass,id):
+def SQLITE_DB_Remove(db,objectClass,id):
     findedOBJ = objectClass.query.get_or_404(id)
     db.session.delete(findedOBJ)
     db.session.commit()
+def SQLITE_DB_GetAll(objectClass):
+    return objectClass.query.all()
